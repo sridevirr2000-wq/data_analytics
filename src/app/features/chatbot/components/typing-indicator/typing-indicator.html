@@ -1,0 +1,9 @@
+<div class="typing-wrapper" @fadeIn>
+    <div class="typing-bubble">
+        <div class="typing-dots">
+            @for (dot of dots; track $index) {
+                <span class="dot" [style.animation-delay.ms]="$index * 150"></span>
+            }
+        </div>
+    </div>
+</div>

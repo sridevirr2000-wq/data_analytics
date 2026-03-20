@@ -1,0 +1,10 @@
+<div class="date-filter">
+  @for (range of ranges; track range) {
+    <button
+      (click)="onRangeSelect(range)"
+      [class.active]="selectedRange === range"
+      class="filter-button">
+      {{ range | titlecase }}
+    </button>
+  }
+</div>

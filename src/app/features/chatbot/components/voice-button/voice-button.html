@@ -1,0 +1,16 @@
+<button
+  (click)="toggleVoiceInput()"
+  [disabled]="!isSupported()"
+  class="voice-button"
+  [class.voice-button--listening]="isListening()"
+  [class.voice-button--disabled]="!isSupported()"
+  [title]="isListening() ? 'Listening...' : 'Start voice input'">
+  
+  @if (isListening()) {
+    <!-- Mic Off Icon -->
+    <img src="/assets/icons/mic_off.svg" alt="Mic Off" width="20" height="20" />
+  } @else {
+    <!-- Mic Icon -->
+    <img src="/assets/icons/mic.svg" alt="Mic" width="20" height="20" />
+  }
+</button>

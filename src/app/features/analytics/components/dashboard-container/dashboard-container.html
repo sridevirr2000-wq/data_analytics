@@ -1,0 +1,49 @@
+<div class="dashboard-page">
+  <div class="dashboard-container">
+    <!-- Header -->
+    <div class="dashboard-header">
+      <div class="header-text">
+        <h1>Analytics Dashboard</h1>
+        <p>Monitor your key metrics and performance</p>
+      </div>
+      
+      <app-date-range-filter
+        [selectedRange]="dateRange()"
+        (rangeChanged)="onDateRangeChange($event)"
+      />
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+      @for (kpi of dashboardData().kpis; track kpi.title) {
+        <app-kpi-card [kpi]="kpi" />
+      }
+    </div>
+
+    <!-- Charts Grid -->
+    <div class="charts-grid">
+      <app-line-chart 
+        [data]="dashboardData().lineChartData"
+        title="User Trend"
+      />
+      
+      <app-bar-chart 
+        [data]="dashboardData().barChartData"
+        title="Category Breakdown"
+      />
+    </div>
+
+    <!-- Doughnut Chart -->
+    <div class="chart-full-width">
+      <app-doughnut-chart 
+        [data]="dashboardData().doughnutChartData"
+        title="Device Distribution"
+      />
+    </div>
+
+    <!-- Data Table -->
+    <app-data-table 
+      [records]="dashboardData().tableRecords"
+    />
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="input-container">
+  <div class="input-wrapper">
+    <app-voice-button (transcriptReady)="onTranscriptReady($event)" />
+    
+    <div class="text-input-wrapper">
+      <textarea
+        type="text"
+        [(ngModel)]="messageText"
+        (keypress)="onKeyPress($event)"
+        placeholder="Type your message..."
+        class="text-input">
+      </textarea>
+    </div>
+    
+    <button
+      (click)="onSend()"
+      [disabled]="!messageText().trim()"
+      class="send-button"
+      [class.send-button--active]="messageText().trim()">
+      <img src="/assets/icons/send_button.svg" alt="Send" width="20" height="20" />
+    </button>
+  </div>
+  
+  <p class="helper-text">
+    Try asking about: pricing, features, analytics, support, or integrations
+  </p>
+</div>

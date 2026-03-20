@@ -1,0 +1,43 @@
+.date-filter {
+  display: flex;
+  width: 100%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+  @media (min-width: 640px) {
+    width: auto;
+  }
+}
+
+.filter-button {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: transparent;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+  white-space: nowrap;
+
+  @media (min-width: 640px) {
+    flex: initial;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  &:hover:not(.active) {
+    color: #111827;
+  }
+
+  &.active {
+    background: #6366f1;
+    color: white;
+  }
+}

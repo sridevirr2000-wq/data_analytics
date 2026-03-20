@@ -1,0 +1,34 @@
+<div class="chat-page">
+  <div class="chat-card">
+    <div class="chat-header">
+      <div class="header-info">
+        <div class="avatar">AI</div>
+        <div class="info-text">
+          <h2>AI Assistant</h2>
+          <div class="status">
+            <span class="status-dot"></span>
+            <span>Online</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="new-chat-container">
+      @if (messageCount() > 1) {
+        <button class="new-chat-button" (click)="startNewChat()">Start New Chat</button>
+      }
+    </div>
+
+    <div class="messages-area" #messageContainer>
+      @for (message of messages(); track message.id) {
+        <app-message-bubble [message]="message" />
+      }
+      
+      @if (isTyping()) {
+        <app-typing-indicator />
+      }
+    </div>
+
+    <app-message-input (messageSent)="onSendMessage($event)" />
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div 
+  class="message-wrapper"
+  [class.message-wrapper--user]="isUser"
+  [class.message-wrapper--bot]="isBot"
+  @fadeInUp>
+  <div 
+    class="message-bubble"
+    [class.message-bubble--user]="isUser"
+    [class.message-bubble--bot]="isBot">
+    <p class="message-content">{{ message.content }}</p>
+    <span class="message-time">
+      {{ message.timestamp | date:'shortTime' }}
+    </span>
+  </div>
+</div>

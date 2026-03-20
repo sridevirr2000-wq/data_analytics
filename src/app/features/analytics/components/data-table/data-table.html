@@ -1,0 +1,106 @@
+<div class="table-card">
+  <!-- Header -->
+  <div class="table-header">
+    <h3 class="table-title">Transaction Records</h3>
+    
+    <div class="table-actions">
+      <!-- Search -->
+      <div class="search-container">
+        <img class="search-icon" src="/assets/icons/search_icon.svg" alt="Search Icon" width="16" height="16" />
+        <input
+          type="text"
+          [value]="searchTerm()"
+          (input)="onSearchChange($any($event.target).value)"
+          placeholder="Search in mm/dd/yyyy format"
+          class="search-input"
+        />
+      </div>
+
+      <!-- Export Button -->
+      <button (click)="exportToCsv()" class="export-button">
+        <img src="/assets/icons/export_icon.svg" alt="Export Icon" width="16" height="16" />
+        Export CSV
+      </button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th (click)="onSort('name')" class="sortable">
+            Name 
+            <img [src]="getSortIcon('name')" class="sort-icon" />
+          </th>
+          <th (click)="onSort('date')" class="sortable">
+            Date 
+            <img [src]="getSortIcon('date')" class="sort-icon" />
+          </th>
+          <th (click)="onSort('category')" class="sortable">
+            Category 
+            <img [src]="getSortIcon('category')" class="sort-icon" />
+          </th>
+          <th (click)="onSort('amount')" class="sortable">
+            Amount 
+            <img [src]="getSortIcon('amount')" class="sort-icon" />
+          </th>
+          <th (click)="onSort('status')" class="sortable">
+            Status 
+            <img [src]="getSortIcon('status')" class="sort-icon" />
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (record of paginatedRecords(); track record.id) {
+          <tr>
+            <td class="text-primary">{{ record.name }}</td>
+            <td class="text-secondary">{{ record.date }}</td>
+            <td class="text-secondary">{{ record.category }}</td>
+            <td class="text-primary amount">
+              ${{ record.amount.toLocaleString() }}
+            </td>
+            <td>
+              <span class="status-badge" [ngClass]="getStatusClass(record.status)">
+                {{ record.status | titlecase }}
+              </span>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="text-center text-secondary">
+              No records found
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <p class="pagination-info">
+      Showing {{ getStartRecord() }} to {{ getEndRecord() }} of {{ sortedRecords().length }} results
+    </p>
+
+    <div class="pagination-controls">
+      <button
+        (click)="previousPage()"
+        [disabled]="currentPage() === 1"
+        class="pagination-button">
+        <img src="/assets/icons/previous.svg" alt="Previous Icon" width="16" height="16" />
+      </button>
+
+      <span class="pagination-text">
+        Page {{ currentPage() }} of {{ totalPages() }}
+      </span>
+
+      <button
+        (click)="nextPage()"
+        [disabled]="currentPage() === totalPages()"
+        class="pagination-button">
+        <img src="/assets/icons/next.svg" alt="Next Icon" width="16" height="16" />
+      </button>
+    </div>
+  </div>
+</div>

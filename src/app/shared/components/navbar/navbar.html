@@ -1,0 +1,82 @@
+<div class="layout">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    
+    <div class="navbar__container">
+      
+      <!-- Left -->
+      <div class="navbar__left">
+        
+        <!-- Logo -->
+        <div class="logo">
+          <div class="logo__icon">S</div>
+          <span class="logo__text">MyApp</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="menu menu--desktop">
+          
+          <a
+            routerLink="/chatbot"
+            routerLinkActive="menu__item--active"
+            class="menu__item"
+          >
+            <img src="/assets/icons/cloud.svg" alt="Cloud" width="20" height="20" />
+            <span>Chatbot</span>
+          </a>
+
+          <a
+            routerLink="/analytics"
+            routerLinkActive="menu__item--active"
+            class="menu__item"
+          >
+            <img src="/assets/icons/analytics.svg" alt="Analytics" width="20" height="20" />
+            <span>Analytics</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <div class="menu-toggle">
+        <button (click)="toggleMenu()">
+          <img src="/assets/icons/hamburger.svg" alt="Menu" width="20" height="20" />
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    @if (mobileMenuOpen()) {
+      <div class="menu menu--mobile">
+        
+        <a
+          routerLink="/chatbot"
+          routerLinkActive="menu__item--active"
+          (click)="toggleMenu()"
+          class="menu__item"
+        >
+        <img src="/assets/icons/cloud.svg" alt="Cloud" width="20" height="20" /> Chatbot
+        </a>
+
+        <a
+          routerLink="/analytics"
+          routerLinkActive="menu__item--active"
+          (click)="toggleMenu()"
+          class="menu__item"
+        >
+        <img src="/assets/icons/analytics.svg" alt="Analytics" width="20" height="20" /> Analytics
+        </a>
+
+      </div>
+    }
+
+  </nav>
+
+  <!-- Page Content -->
+  <main class="content">
+    <router-outlet />
+  </main>
+
+</div>

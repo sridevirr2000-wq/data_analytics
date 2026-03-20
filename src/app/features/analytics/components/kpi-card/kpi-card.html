@@ -1,0 +1,24 @@
+<div class="kpi-card">
+  <div class="kpi-header">
+    <div class="icon-container">
+      <img
+        class="kpi-icon"
+        [src]="'assets/icons/' + kpi.icon + '.svg'"
+        alt="{{ kpi.icon }} icon"
+      />
+    </div>
+    
+    <div class="change-badge" [ngClass]="kpi.isPositive ? 'change-positive' : 'change-negative'">
+      @if (kpi.isPositive) {
+        <img src="/assets/icons/positive_icon.svg" alt="Positive Icon" width="16" height="16" />
+      } @else {
+        <img src="/assets/icons/negative_icon.svg" alt="Negative Icon" width="16" height="16" />
+      }
+      {{ kpi.change }}%
+    </div>
+  </div>
+
+  <h3 class="kpi-title">{{ kpi.title }}</h3>
+  <p class="kpi-value">{{ kpi.value }}</p>
+  <p class="kpi-comparison">vs previous period</p>
+</div>

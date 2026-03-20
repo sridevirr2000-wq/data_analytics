@@ -1,0 +1,11 @@
+<div class="chart-card">
+  <h3 class="chart-title">{{ title }}</h3>
+  <div class="chart-container">
+    <canvas 
+      baseChart
+      [data]="lineChartData"
+      [options]="lineChartOptions"
+      type="line">
+    </canvas>
+  </div>
+</div>

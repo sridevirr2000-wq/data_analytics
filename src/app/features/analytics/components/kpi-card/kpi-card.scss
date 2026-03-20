@@ -1,0 +1,126 @@
+.kpi-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+
+  @media (min-width: 640px) {
+    padding: 1.5rem;
+  }
+
+}
+
+.kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+
+  @media (min-width: 640px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.icon-container {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 640px) {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .kpi-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+
+    @media (min-width: 640px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &.bg-indigo {
+    background-color: #eef2ff;
+  }
+
+  &.bg-green {
+    background-color: #f0fdf4;
+  }
+
+  &.bg-purple {
+    background-color: #faf5ff;
+  }
+}
+
+.change-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  @media (min-width: 640px) {
+    font-size: 0.875rem;
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+
+    @media (min-width: 640px) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &.change-positive {
+    color: #10b981;
+  }
+
+  &.change-negative {
+    color: #ef4444;
+  }
+}
+
+.kpi-title {
+  color: #6b7280;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+
+  @media (min-width: 640px) {
+    font-size: 0.875rem;
+  }
+}
+
+.kpi-value {
+  color: #111827;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+
+  @media (min-width: 640px) {
+    font-size: 1.875rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.25rem;
+  }
+}
+
+.kpi-comparison {
+  color: #9ca3af;
+  font-size: 0.7rem;
+  margin: 0.5rem 0 0 0;
+
+  @media (min-width: 640px) {
+    font-size: 0.75rem;
+  }
+}
