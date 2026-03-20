@@ -195,6 +195,12 @@
   gap: 1rem;
 }
 
+@media (max-width: 768px) {
+  .pagination {
+    justify-content: center;
+  }
+}
+
 .pagination-info {
   font-size: 0.875rem;
   color: #6b7280;
