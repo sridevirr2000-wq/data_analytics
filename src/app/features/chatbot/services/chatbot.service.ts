@@ -92,6 +92,12 @@ export class ChatbotService {
         'Goodbye! Feel free to come back anytime. Have a wonderful day!',
         'See you later! Don\'t hesitate to return if you need assistance.'
       ] 
+    },
+    {
+      keywords: ['sorry', 'apologize', 'my bad', 'apology'],
+      responses: [
+        'No problem at all!! I\'m here to help whenever you\'re ready, and we can keep going from where we left off.'
+      ]
     }
   ];
 
