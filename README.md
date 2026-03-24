@@ -27,7 +27,7 @@ This project is a modern Angular 21 application featuring:
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/sridevirr2000-wq/data_analytics.git
 cd data_analytics
 ```
 
